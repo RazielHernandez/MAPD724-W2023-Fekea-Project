@@ -20,13 +20,21 @@
 // Show map to locate stores where items are aviable
 
 import SwiftUI
-import CoreLocation
+import MapKit
+
+struct Marker: Identifiable {
+    let id = UUID()
+    var location: MapMarker
+}
 
 struct Map: View {
     @StateObject var mapData = MapViewModel()
     
     // Location MAnager
     @State var locationManager = CLLocationManager()
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 38.8977, longitude: -77.0365), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    
+    let markers = [Marker(location: MapMarker(coordinate: CLLocationCoordinate2D(latitude: 38.8977, longitude: -77.0365), tint: .red))]
     
     var body: some View {
         ZStack {
@@ -35,8 +43,30 @@ struct Map: View {
             // Using it as enviroment object so that it can be used ints subViews.
                 .environmentObject(mapData)
                 .ignoresSafeArea(.all, edges: .all)
+                
             
             VStack {
+                
+                
+                /*Map(coordinateRegion: $region, annotationItems: markers) { location in
+                            //MapMarker(coordinate: location.coordinate, tint: .blue) // For using built-in marker
+                            MapAnnotation(coordinate: location.coordinate) {
+                                Circle()
+                                    .stroke(.blue, lineWidth: 4)
+                                    .frame(width: 11, height: 11)
+                                    .onTapGesture {
+                                        print("Clicked on \(location.name)")
+                                    }
+                                
+                                Text(location.name).foregroundColor(Color.blue)
+                                
+                            }
+                        }*/
+                
+               /*MapView(coordinateRegion: $region, showsUserLocation: true,
+                  annotationItems: markers) { marker in
+                    marker.location
+                }.edgesIgnoringSafeArea(.all)*/
                 
                 VStack(spacing: 0) {
 /*                    HStack {

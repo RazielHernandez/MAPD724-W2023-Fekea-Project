@@ -10,12 +10,12 @@ import FirebaseFirestoreSwift
 public struct OrderModel: Codable {
     
     @DocumentID var id: String?
-    let deliveryDate: String
+    var deliveryDate: String
     var items = [FurnitureModel]()
-    let orderDate: String
-    let shipmentDate: String
-    let status: String
-    let total: Float
-    let user: String
+    var orderDate: String
+    var shipmentDate: String
+    var status: String
+    var total: Float
+    var user: String
     
 }

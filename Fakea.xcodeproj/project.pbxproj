@@ -21,6 +21,7 @@
 		8E11229F29E7263B0097E8DB /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E11229E29E7263B0097E8DB /* OrderModel.swift */; };
 		8ECBF15F29E8FC95006E38BE /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF15E29E8FC95006E38BE /* UserSignUpView.swift */; };
 		8ECBF16129E90599006E38BE /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16029E90599006E38BE /* UserLoginView.swift */; };
+		8ECBF16329EB522D006E38BE /* StoreMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16229EB522D006E38BE /* StoreMap.swift */; };
 		A9493A0529CFD97800DDFED7 /* FakeaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A0429CFD97800DDFED7 /* FakeaApp.swift */; };
 		A9493A0929CFD97800DDFED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9493A0829CFD97800DDFED7 /* Assets.xcassets */; };
 		A9493A0C29CFD97800DDFED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9493A0B29CFD97800DDFED7 /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		8E11229E29E7263B0097E8DB /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		8ECBF15E29E8FC95006E38BE /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		8ECBF16029E90599006E38BE /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
+		8ECBF16229EB522D006E38BE /* StoreMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMap.swift; sourceTree = "<group>"; };
 		A9493A0129CFD97800DDFED7 /* Fakea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fakea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9493A0429CFD97800DDFED7 /* FakeaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeaApp.swift; sourceTree = "<group>"; };
 		A9493A0829CFD97800DDFED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				A9493A1E29D0046D00DDFED7 /* ContentView.swift */,
 				A95C305629D0FED500B170C2 /* NotificationView.swift */,
 				8ECBF15E29E8FC95006E38BE /* UserSignUpView.swift */,
+				8ECBF16229EB522D006E38BE /* StoreMap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				8ECBF15F29E8FC95006E38BE /* UserSignUpView.swift in Sources */,
 				8E11229929E71BA60097E8DB /* UserModel.swift in Sources */,
 				A9493A2129D0AEF700DDFED7 /* HomeView.swift in Sources */,
+				8ECBF16329EB522D006E38BE /* StoreMap.swift in Sources */,
 				A95C306329D11A1700B170C2 /* Map.swift in Sources */,
 				A9493A1B29CFEBF500DDFED7 /* CartItems.swift in Sources */,
 				A95C305729D0FED500B170C2 /* NotificationView.swift in Sources */,

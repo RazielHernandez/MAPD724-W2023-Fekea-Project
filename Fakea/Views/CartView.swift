@@ -22,10 +22,22 @@
 import SwiftUI
 
 struct CartView: View {
-    let cartItems = [
-        CartItems(id: 1, title: "Chair One", image: "chair", quantity: 1, price: 50.45, discount: 0),
-        CartItems(id: 2, title: "Chester", image: "chester", quantity: 1, price: 150.50, discount: 5)
-    ]
+    
+    @ObservedObject var dataBase: FirestoreManager
+    
+    func checkout() {
+        print("Buy")
+        let today = Date.now
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        var newOrder = OrderModel(deliveryDate: formatter.string(from: today), orderDate: formatter.string(from: today), shipmentDate: formatter.string(from: today), status: "Pending", total: dataBase.user.calculateTotalBasket(), user: dataBase.user.email)
+        newOrder.items = dataBase.user.basket
+        
+        
+        dataBase.insertNewOder(order: newOrder)
+        
+        dataBase.user.basket.removeAll()
+    }
     
     var body: some View {
         ZStack {
@@ -48,50 +60,120 @@ struct CartView: View {
                         .padding(.trailing)
                 }
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(cartItems) { cartItem in
-                        VStack(alignment: .leading, spacing: 16) {
-                            Image(cartItem.image)
-                                .resizable()
-                                .frame(width: 350, height: 250)
-                            VStack(alignment: .leading) {
-                                Text(cartItem.title)
-                                    .font(.headline)
-                                    .foregroundColor(.black)
-                                    .padding(.leading,8)
-                                HStack(spacing: 4.0) {
-                                    Text("Quantity  ")
-                                    Image("minus")
-                                    Text("  \(cartItem.quantity)  ")
-                                    Image("plus")
-                                    Text("  Price  $")
-                                    Text(" " + String(format: "%.2f", cartItem.price))
-                                }.foregroundColor(.black)
-                                    .padding(.leading,10)
-                                    .padding(.bottom,16)
-                                if (cartItem.discount > 0) {
-                                    Text("  Discount   " + String(format: "%.2f", cartItem.discount) + "%")
-                                        .foregroundColor(Color.red)
-                                        .padding(.bottom,16)
-                                }
-                            }.padding(.horizontal, 8)
-                        }
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 24.0))
-                    }.padding(.leading)
+                    ForEach(dataBase.user.basket) { cartItem in
+                        CartCardView(furniture: cartItem)
+                    }
+                    .padding(.leading)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                Text("Taxes $44.49").padding(.leading)
                 HStack {
-                    Text("Total Amount $ 237.92").padding(.leading)
-                    Image("buy").frame(maxWidth: .infinity, alignment: .trailing)
+                    Text(String(format: "Total amount $ %.2f", dataBase.user.calculateTotalBasket()))
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                    
+                    Spacer()
+                    
+                    Button(action: {checkout()}, label: {
+                        Text("Checkout")
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(10.0)
+                            .foregroundColor(Color.gray)
+                            .lineLimit(1)
+                    })
+                    .disabled(!dataBase.user.enable)
+                    .padding()
                 }
+                .background(Color.gray)
+                .cornerRadius(40, corners: [.topRight, .topLeft])
+                
             }
         }
     }
 }
 
+struct CartCardView: View {
+    
+    @State var furniture: FurnitureModel
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            if (furniture.images.count > 0){
+                AsyncImage(
+                    url: URL(string: furniture.images[0]),
+                    content: { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 350, height: 250)
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
+            } else {
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .frame(width: 350, height: 250)
+            }
+            
+            VStack(alignment: .leading) {
+                Text(furniture.model)
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding(.leading,8)
+                HStack(spacing: 4.0) {
+                    Text("Quantity  ")
+                    
+                    Button(action:{
+                        if (furniture.quantity > 1){
+                            furniture.quantity = furniture.quantity - 1
+                        }
+                    }) {
+                        Image(systemName: "minus")
+                            .padding(.all,8)
+                    }
+                    .frame(width: 30, height: 30)
+                    .overlay(RoundedRectangle(cornerRadius: 50).stroke())
+                    .foregroundColor(.black)
+                    
+                    Text("  \(furniture.quantity)  ")
+                    
+                    Button(action:{
+                        if (furniture.quantity < 10){
+                            furniture.quantity = furniture.quantity + 1
+                        }
+                    }) {
+                        Image(systemName: "plus")
+                            .padding(.all,8)
+                    }
+                    .background(Color.gray)
+                    .clipShape(Circle())
+                    .foregroundColor(.white)
+                    
+                    Text("  Price  $")
+                    Text(" $" + String(format: "%.2f", furniture.calculateFinalPrice()))
+                }
+                .foregroundColor(.black)
+                .padding(.leading,10)
+                .padding(.bottom,16)
+                if (furniture.discount > 0) {
+                    Text("" + String(furniture.discount) + "% Off").foregroundColor(Color.red)
+                        .foregroundColor(Color.red)
+                        .padding(.leading,10)
+                }
+            }.padding(.horizontal, 8)
+        }
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 24.0))
+    }
+    
+}
+
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        @ObservedObject var dataBase = FirestoreManager()
+        CartView(dataBase: dataBase)
     }
 }

@@ -164,4 +164,19 @@ class FirestoreManager: ObservableObject {
         }
     }
     
+    func insertNewOder( order: OrderModel) {
+        do {
+            try db.collection("orders_collection").addDocument(from: order) { err in
+                if let err = err {
+                    print("Error inser order document: \(err)")
+                } else {
+                    print("Order added successfully")
+                }
+            }
+        } catch {
+            errorMessage = "Error on inser order"
+            print(errorMessage)
+        }
+    }
+    
 }

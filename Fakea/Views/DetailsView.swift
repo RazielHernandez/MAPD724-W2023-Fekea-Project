@@ -29,6 +29,21 @@ struct DetailsView: View {
     
     var furniture: FurnitureModel
     
+    func addToCar() {
+        print("Add to cart")
+        var furnitureToBasket = self.furniture
+        furnitureToBasket.quantity = self.quantity
+        let index = dataBase.user.basket.firstIndex(where: { $0.id == furniture.id}) ?? -1
+        
+        if (index >= 0){
+            dataBase.user.basket[index].quantity += self.quantity
+        }else {
+            dataBase.user.basket.append(furnitureToBasket)
+        }
+        
+        dataBase.updateUser(userToUpdate: dataBase.user)
+    }
+    
     
     var body: some View {
         NavigationView{
@@ -37,18 +52,26 @@ struct DetailsView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView {
-                    AsyncImage(
-                        url: URL(string: furniture.images[0]),
-                        content: { image in
-                            image.resizable()
-                                 .aspectRatio(contentMode: .fit)
-                                 .frame(width: 400, height: 300)
-                        },
-                        placeholder: {
-                            ProgressView()
-                        }
-                    )
-                    .cornerRadius(20.0)
+                    if (furniture.images.count > 0) {
+                        AsyncImage(
+                            
+                            url: URL(string: furniture.images[0]),
+                            content: { image in
+                                image.resizable()
+                                     .aspectRatio(contentMode: .fit)
+                                     .frame(width: 400, height: 300)
+                            },
+                            placeholder: {
+                                ProgressView()
+                            }
+                        )
+                        .cornerRadius(20.0)
+                    }else {
+                        Image (systemName: "heart.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 280)
+                    }
                     
                     VStack(alignment: .leading) {
                         Text(furniture.category)
@@ -187,25 +210,26 @@ struct DetailsView: View {
                 .padding(.bottom)
                 
                 HStack {
-                    Text(String(format: "$ %.2f", furniture.price))
+                    Text(String(format: "$ %.2f", furniture.calculateFinalPrice()))
                         .font(.title)
                         .foregroundColor(.white)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
-                    Button(action: {}, label: {
+                    Button(action: {addToCar()}, label: {
                         Text("Add to Cart")
                             .padding()
-                            .padding(.horizontal)
                             .background(Color.white)
                             .cornerRadius(10.0)
                             .foregroundColor(Color.gray)
+                            .lineLimit(1)
                     })
                     .disabled(!dataBase.user.enable)
+                    .padding()
                 }
-                .padding(.horizontal)
                 .background(Color.gray)
-                .cornerRadius(50, corners: .topLeft)
+                .cornerRadius(40, corners: [.topRight, .topLeft])
                 .frame(maxHeight: .infinity, alignment: .bottom)
             }
             .padding(.bottom)
@@ -232,7 +256,7 @@ extension View {
 
 struct DetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let testFurniture = FurnitureModel(brand: "Test", dimensions: FurnitureDimension())
+        let testFurniture = FurnitureModel()
         @ObservedObject var dataBase = FirestoreManager()
         DetailsView(dataBase: dataBase, furniture: testFurniture)
     }

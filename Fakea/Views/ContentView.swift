@@ -45,7 +45,7 @@ struct ContentView: View {
                         Image(systemName: "star.fill")
                         Text("Favorites")
                     }
-                CartView()
+                CartView(dataBase: self.dataBase)
                     .tabItem() {
                         Image(systemName: "cart.fill")
                         Text("Cart")

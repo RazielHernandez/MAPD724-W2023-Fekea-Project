@@ -13,7 +13,7 @@ struct FurnitureModel: Codable, Identifiable {
     var brand: String = ""
     var category: String = ""
     var colors = [FurnitureColor]()
-    var dimensions: FurnitureDimension
+    var dimensions = FurnitureDimension()
     var discount: Int = 0
     var id: String = ""
     var images = [String]()
@@ -22,12 +22,17 @@ struct FurnitureModel: Codable, Identifiable {
     var model: String = ""
     var model3d: String = ""
     var price: Float = 0.0
+    var quantity: Int = 1
     var rating: Float = 0.0
     var room: String = ""
     var shortDescription: String = ""
     var size: String = ""
     var stores = [String]()
     var style: String = ""
+    
+    func calculateFinalPrice () -> Float {
+        return (price - (price * (Float(discount) / Float(100)))) * Float(quantity)
+    }
     
 }
 

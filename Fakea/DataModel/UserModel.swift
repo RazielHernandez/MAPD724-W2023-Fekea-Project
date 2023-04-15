@@ -5,7 +5,7 @@
 //  Created by Raziel Hernandez on 2023-04-12.
 //
 
-
+import SwiftUI
 import FirebaseFirestoreSwift
 
 struct UserModel: Codable {
@@ -24,19 +24,27 @@ struct UserModel: Codable {
     var telephone: String = ""
     var type: String = ""
     
+    func calculateTotalBasket() -> Float {
+        var result = Float(0)
+        for item in basket {
+            result = result + item.calculateFinalPrice()
+        }
+        return result
+    }
+    
 }
 
 struct AddressModel: Codable {
-    let address: String
-    let name: String
-    let postalCode: String
-    let telephone: String
+    var address: String
+    var name: String
+    var postalCode: String
+    var telephone: String
 }
 
 struct CreditCardModel: Codable {
-    let cvv: String
-    let expireDate: String
-    let name: String
-    let number: String
-    let owner: String
+    var cvv: String
+    var expireDate: String
+    var name: String
+    var number: String
+    var owner: String
 }
