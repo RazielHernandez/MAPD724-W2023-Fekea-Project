@@ -18,6 +18,7 @@ class FirestoreManager: ObservableObject {
     @Published var furnitureListAll = [FurnitureModel]()
     @Published var furnitureListBest = [FurnitureModel]()
     @Published var furnitureListSale = [FurnitureModel]()
+    @Published var furnitureFavorites = [FurnitureModel]()
     @Published var errorMessage = ""
     @Published var stores = [StoreModel]()
     
@@ -81,12 +82,35 @@ class FirestoreManager: ObservableObject {
                 if (user.password == password){
                     self.user = user
                     self.errorMessage = "nil"
-                    print("User logged: \(self.user.id)")
+                    self.getFurnituresFavorites(ids: self.user.favorites)
                 }else {
                     self.errorMessage = "User or password are incorrect"
                 }
             case .failure(let error):
                 self.errorMessage = "Error decoding document: \(error.localizedDescription)"
+            }
+        }
+    }
+    
+    func getFurnituresFavorites(ids: [String]) {
+        db.collection("furniture_collection").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                do {
+                    for document in querySnapshot!.documents {
+                        if (ids.contains(document.documentID)) {
+                            let furniture = try document.data(as: FurnitureModel.self)
+                            print("Favorite \(furniture.id) added")
+                            self.furnitureFavorites.append(furniture)
+                            
+                        }
+                    }
+                }
+                catch {
+                    print("Error on decoding furniture object")
+                    print(error)
+                }
             }
         }
     }

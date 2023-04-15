@@ -40,7 +40,7 @@ struct ContentView: View {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
-                FavoritesView()
+                FavoritesView(dataBase: self.dataBase)
                     .tabItem() {
                         Image(systemName: "star.fill")
                         Text("Favorites")

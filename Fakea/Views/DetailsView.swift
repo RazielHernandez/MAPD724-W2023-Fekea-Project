@@ -63,11 +63,11 @@ struct DetailsView: View {
                             }
                             Text(String(format: "Rating %.2f", furniture.rating))
                             
+                            Spacer()
                             if (dataBase.user.favorites.contains(furniture.id)) {
-                                Image("star")
+                                Image(systemName: "heart.fill")
                             }
                             
-                            Spacer()
                             Button("Favorites") {
                                 if (!dataBase.user.favorites.contains(furniture.id)){
                                     dataBase.user.favorites.append(furniture.id)
@@ -201,6 +201,7 @@ struct DetailsView: View {
                             .cornerRadius(10.0)
                             .foregroundColor(Color.gray)
                     })
+                    .disabled(!dataBase.user.enable)
                 }
                 .padding(.horizontal)
                 .background(Color.gray)
