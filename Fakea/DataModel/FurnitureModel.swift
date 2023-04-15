@@ -6,8 +6,9 @@
 //
 
 import FirebaseFirestoreSwift
+import SwiftUI
 
-struct FurnitureModel: Codable {
+struct FurnitureModel: Codable, Identifiable {
     
     var brand: String = ""
     var category: String = ""
@@ -31,19 +32,25 @@ struct FurnitureModel: Codable {
 }
 
 struct FurnitureDimension: Codable {
-    let depth: Float
-    let height: Float
-    let unit: String
-    let width: Float
+    var depth: Float = 0.0
+    var height: Float = 0.0
+    var unit: String = "unit"
+    var width: Float = 0.0
     
 }
 
-struct FurnitureColor: Codable {
-    let name: String
-    let colorRed: Int
-    let colorGreen: Int
-    let colorBlue: Int
-    let colorOpacity: Int
+struct FurnitureColor: Codable, Hashable {
+    var name: String = ""
+    var colorRed: Int = 1
+    var colorGreen: Int = 1
+    var colorBlue: Int = 1
+    var colorOpacity: Int = 1
     
+    func getColor() -> Color {
+        let r = Double(colorRed) / 255.0
+        let g = Double(colorGreen) / 255.0
+        let b = Double(colorBlue) / 255.0
+        return Color(red: r, green: g, blue: b)
+    }
     
 }

@@ -40,7 +40,7 @@ class FirestoreManager: ObservableObject {
     
     func updateUser(userToUpdate: UserModel) {
         do {
-            try db.collection("users_collection").document(userToUpdate.id!)
+            try db.collection("users_collection").document(userToUpdate.email)
                 .setData(from: userToUpdate, merge: true) { err in
                 if let err = err {
                     print("Error updating document: \(err)")
@@ -81,6 +81,7 @@ class FirestoreManager: ObservableObject {
                 if (user.password == password){
                     self.user = user
                     self.errorMessage = "nil"
+                    print("User logged: \(self.user.id)")
                 }else {
                     self.errorMessage = "User or password are incorrect"
                 }
@@ -105,7 +106,7 @@ class FirestoreManager: ObservableObject {
                         if (furniture.rating >= 4.5) {
                             self.furnitureListBest.append(furniture)
                         }
-                        print("\(document.documentID) => \(document.data())")
+                        //print("\(document.documentID) => \(document.data())")
                     }
                 }
                 catch {

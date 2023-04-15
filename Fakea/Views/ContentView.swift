@@ -23,21 +23,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var dataBase = FirestoreManager()
+    
+    init () {
+        self.dataBase.getAllFurniture()
+    }
+    
     var body: some View {
         ZStack{
             Color(red: 190/255, green: 188/255, blue:196/255)
                 .edgesIgnoringSafeArea(.all)
             
             TabView {
-                HomeView()
+                HomeView(dataBase: self.dataBase)
                     .tabItem() {
                         Image(systemName: "house.fill")
                         Text("Home")
-                    }
-                SearchView()
-                    .tabItem() {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
                     }
                 FavoritesView()
                     .tabItem() {
@@ -49,7 +50,7 @@ struct ContentView: View {
                         Image(systemName: "cart.fill")
                         Text("Cart")
                     }
-                UserView()
+                UserView(dataBase: self.dataBase)
                     .tabItem() {
                         Image(systemName: "person.fill")
                         Text("User")
@@ -64,5 +65,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(FirestoreManager())
     }
 }

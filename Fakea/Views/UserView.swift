@@ -23,7 +23,8 @@ import SwiftUI
 
 struct UserView: View {
     @State private var showNotification = false
-    @ObservedObject private var dataBase = FirestoreManager()
+    //@EnvironmentObject var dataBase: FirestoreManager
+    @ObservedObject var dataBase: FirestoreManager
     
     func loggingFunction(email: String, password: String) {
         print("Loggin with \(email)/\(password)")
@@ -72,12 +73,7 @@ struct LoggedView: View {
     var logoutFunction: () -> Void
     
     func testFunction() {
-        /*print("Tested")
-        var newUser = dataBase.user
-        newUser.password = "usertest3"
-        newUser.telephone = "444 123 1234"
-        newUser.favorites.append("LR00000007")
-        dataBase.updateUser(userToUpdate: newUser)*/
+        print("Test function")
     }
     
     var body: some View {
@@ -161,6 +157,7 @@ struct SettingRowView : View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView()
+        @ObservedObject var dataBase = FirestoreManager()
+        UserView(dataBase: dataBase)
     }
 }
