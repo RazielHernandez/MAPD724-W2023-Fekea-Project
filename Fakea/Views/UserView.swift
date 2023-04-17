@@ -90,10 +90,18 @@ struct LoggedView: View {
                 
                 
                 Section(header: Text("User account")) {
-                    SettingRowView(title: "User info", systemImageName: "person.fill", action: testFunction)
-                    SettingRowView(title: "Change password", systemImageName: "key.fill", action: testFunction)
-                    SettingRowView(title: "Address", systemImageName: "location.fill", action: testFunction)
-                    SettingRowView(title: "Methods of payment", systemImageName: "creditcard.fill", action: testFunction)
+                    NavigationLink(destination: UserAccountView()) {
+                        SettingRowView(title: "User info", systemImageName: "person.fill", action: testFunction)
+                    }
+                    NavigationLink(destination: ChangePasswordView()) {
+                        SettingRowView(title: "Change password", systemImageName: "key.fill", action: testFunction)
+                    }
+                    NavigationLink(destination: AddressView()) {
+                        SettingRowView(title: "Address", systemImageName: "location.fill", action: testFunction)
+                    }
+                    NavigationLink(destination: CreditCardStruct()) {
+                        SettingRowView(title: "Methods of payment", systemImageName: "creditcard.fill", action: testFunction)
+                    }
                 }
                 
                 Section(header: Text("Orders")) {

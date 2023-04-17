@@ -22,6 +22,12 @@
 		8ECBF15F29E8FC95006E38BE /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF15E29E8FC95006E38BE /* UserSignUpView.swift */; };
 		8ECBF16129E90599006E38BE /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16029E90599006E38BE /* UserLoginView.swift */; };
 		8ECBF16329EB522D006E38BE /* StoreMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16229EB522D006E38BE /* StoreMap.swift */; };
+		8ECBF16529ECDD16006E38BE /* UserAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16429ECDD16006E38BE /* UserAccountView.swift */; };
+		8ECBF16729ECDDB5006E38BE /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16629ECDDB5006E38BE /* ChangePasswordView.swift */; };
+		8ECBF16929ECDE9C006E38BE /* CreditCardStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16829ECDE9C006E38BE /* CreditCardStruct.swift */; };
+		8ECBF16D29ECDEDE006E38BE /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16C29ECDEDE006E38BE /* CreditCard.swift */; };
+		8ECBF17029ECDF5C006E38BE /* AddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16E29ECDF5C006E38BE /* AddressData.swift */; };
+		8ECBF17129ECDF5C006E38BE /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBF16F29ECDF5C006E38BE /* AddressView.swift */; };
 		A9493A0529CFD97800DDFED7 /* FakeaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A0429CFD97800DDFED7 /* FakeaApp.swift */; };
 		A9493A0929CFD97800DDFED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9493A0829CFD97800DDFED7 /* Assets.xcassets */; };
 		A9493A0C29CFD97800DDFED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9493A0B29CFD97800DDFED7 /* Preview Assets.xcassets */; };
@@ -52,6 +58,12 @@
 		8ECBF15E29E8FC95006E38BE /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		8ECBF16029E90599006E38BE /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 		8ECBF16229EB522D006E38BE /* StoreMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMap.swift; sourceTree = "<group>"; };
+		8ECBF16429ECDD16006E38BE /* UserAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountView.swift; sourceTree = "<group>"; };
+		8ECBF16629ECDDB5006E38BE /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		8ECBF16829ECDE9C006E38BE /* CreditCardStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardStruct.swift; sourceTree = "<group>"; };
+		8ECBF16C29ECDEDE006E38BE /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		8ECBF16E29ECDF5C006E38BE /* AddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressData.swift; sourceTree = "<group>"; };
+		8ECBF16F29ECDF5C006E38BE /* AddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		A9493A0129CFD97800DDFED7 /* Fakea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fakea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9493A0429CFD97800DDFED7 /* FakeaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeaApp.swift; sourceTree = "<group>"; };
 		A9493A0829CFD97800DDFED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +167,8 @@
 		A9493A1529CFDAFF00DDFED7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8ECBF16E29ECDF5C006E38BE /* AddressData.swift */,
+				8ECBF16F29ECDF5C006E38BE /* AddressView.swift */,
 				A9493A1629CFDB1300DDFED7 /* FavoritesView.swift */,
 				A95C305C29D1199A00B170C2 /* MapView.swift */,
 				A95C305A29D10FDB00B170C2 /* DetailsView.swift */,
@@ -168,6 +182,10 @@
 				A95C305629D0FED500B170C2 /* NotificationView.swift */,
 				8ECBF15E29E8FC95006E38BE /* UserSignUpView.swift */,
 				8ECBF16229EB522D006E38BE /* StoreMap.swift */,
+				8ECBF16429ECDD16006E38BE /* UserAccountView.swift */,
+				8ECBF16629ECDDB5006E38BE /* ChangePasswordView.swift */,
+				8ECBF16829ECDE9C006E38BE /* CreditCardStruct.swift */,
+				8ECBF16C29ECDEDE006E38BE /* CreditCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,22 +280,28 @@
 				A95C306329D11A1700B170C2 /* Map.swift in Sources */,
 				A9493A1B29CFEBF500DDFED7 /* CartItems.swift in Sources */,
 				A95C305729D0FED500B170C2 /* NotificationView.swift in Sources */,
+				8ECBF16529ECDD16006E38BE /* UserAccountView.swift in Sources */,
 				A95C306529D11FBA00B170C2 /* ARView.swift in Sources */,
 				A95C305D29D1199A00B170C2 /* MapView.swift in Sources */,
+				8ECBF16929ECDE9C006E38BE /* CreditCardStruct.swift in Sources */,
 				8ECBF16129E90599006E38BE /* UserLoginView.swift in Sources */,
 				8E11229229E70E710097E8DB /* FirestoreManager.swift in Sources */,
 				A95C306129D119FA00B170C2 /* Places.swift in Sources */,
 				A9493A2729D0B11B00DDFED7 /* HomeItems.swift in Sources */,
+				8ECBF17029ECDF5C006E38BE /* AddressData.swift in Sources */,
+				8ECBF16D29ECDEDE006E38BE /* CreditCard.swift in Sources */,
 				8E11229D29E725A90097E8DB /* StoreModel.swift in Sources */,
 				A95C305B29D10FDB00B170C2 /* DetailsView.swift in Sources */,
 				8E11229B29E71F760097E8DB /* FurnitureModel.swift in Sources */,
 				A9493A1F29D0046D00DDFED7 /* ContentView.swift in Sources */,
+				8ECBF16729ECDDB5006E38BE /* ChangePasswordView.swift in Sources */,
 				A9493A1729CFDB1300DDFED7 /* FavoritesView.swift in Sources */,
 				A9493A1429CFDA0100DDFED7 /* FavoritesItems.swift in Sources */,
 				A95C305F29D119D000B170C2 /* MapViewModel.swift in Sources */,
 				A9493A2529D0AF3C00DDFED7 /* UserView.swift in Sources */,
 				8E11229F29E7263B0097E8DB /* OrderModel.swift in Sources */,
 				A9493A0529CFD97800DDFED7 /* FakeaApp.swift in Sources */,
+				8ECBF17129ECDF5C006E38BE /* AddressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
