@@ -18,11 +18,34 @@
 // Student ID: 301286477
 
 import FirebaseFirestoreSwift
+import SwiftUI
+import MapKit
 
-public struct StoreModel: Codable {
+public struct StoreModel: Codable, Identifiable {
     
-    @DocumentID var id: String?
+    @DocumentID public var id: String?
     var latitude: Float = 0.0
     var longitude: Float = 0.0
     var name: String = ""
+    
+    func getCoordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: Double(self.latitude), longitude: Double(self.longitude))
+    }
+    
+    /*func getMarker() -> StoreLocation {
+        return StoreLocation(store: self)
+    }*/
+    
 }
+
+/*public struct StoreLocation: Identifiable {
+    public var id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+    
+    init (store: StoreModel) {
+        id = UUID()
+        name = store.name
+        coordinate = CLLocationCoordinate2D(latitude: Double(store.latitude), longitude: Double(store.longitude))
+    }
+}*/

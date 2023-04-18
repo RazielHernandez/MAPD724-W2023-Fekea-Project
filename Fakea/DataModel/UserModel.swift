@@ -34,7 +34,7 @@ struct UserModel: Codable {
     var name: String = ""
     var password: String = ""
     var telephone: String = ""
-    var type: String = ""
+    var type: String = "App"
     
     func calculateTotalBasket() -> Float {
         var result = Float(0)
@@ -47,16 +47,16 @@ struct UserModel: Codable {
 }
 
 struct AddressModel: Codable {
-    var address: String
-    var name: String
-    var postalCode: String
-    var telephone: String
+    var address: String = ""
+    var name: String = "Home"
+    var postalCode: String = ""
+    var telephone: String = ""
 }
 
 struct CreditCardModel: Codable {
-    var cvv: String
-    var expireDate: String
-    var name: String
-    var number: String
-    var owner: String
+    var cvv: String = ""
+    var expireDate: String = ""
+    var name: String = ""
+    var number: String = ""
+    var owner: String = ""
 }

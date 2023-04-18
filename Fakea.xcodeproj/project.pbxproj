@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E104F8529EE20CF001AC23F /* old_wooden_chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F7E29EE20CF001AC23F /* old_wooden_chair.usdz */; };
+		8E104F8629EE20CF001AC23F /* recliner_sofa.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F7F29EE20CF001AC23F /* recliner_sofa.usdz */; };
+		8E104F8729EE20CF001AC23F /* antique_desk.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F8029EE20CF001AC23F /* antique_desk.usdz */; };
+		8E104F8829EE20CF001AC23F /* lamp.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F8129EE20CF001AC23F /* lamp.usdz */; };
+		8E104F8929EE20CF001AC23F /* recliner.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F8229EE20CF001AC23F /* recliner.usdz */; };
+		8E104F8A29EE20CF001AC23F /* sofa_3230.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F8329EE20CF001AC23F /* sofa_3230.usdz */; };
+		8E104F8B29EE20CF001AC23F /* wooden_table.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E104F8429EE20CF001AC23F /* wooden_table.usdz */; };
 		8E11228229E7049A0097E8DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E11228129E7049A0097E8DB /* GoogleService-Info.plist */; };
 		8E11228529E706EE0097E8DB /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8E11228429E706EE0097E8DB /* FirebaseAnalyticsSwift */; };
 		8E11228729E706EE0097E8DB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8E11228629E706EE0097E8DB /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -31,24 +38,24 @@
 		A9493A0529CFD97800DDFED7 /* FakeaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A0429CFD97800DDFED7 /* FakeaApp.swift */; };
 		A9493A0929CFD97800DDFED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9493A0829CFD97800DDFED7 /* Assets.xcassets */; };
 		A9493A0C29CFD97800DDFED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9493A0B29CFD97800DDFED7 /* Preview Assets.xcassets */; };
-		A9493A1429CFDA0100DDFED7 /* FavoritesItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A1329CFDA0100DDFED7 /* FavoritesItems.swift */; };
 		A9493A1729CFDB1300DDFED7 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A1629CFDB1300DDFED7 /* FavoritesView.swift */; };
-		A9493A1B29CFEBF500DDFED7 /* CartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A1A29CFEBF500DDFED7 /* CartItems.swift */; };
 		A9493A1D29CFEC3900DDFED7 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A1C29CFEC3900DDFED7 /* CartView.swift */; };
 		A9493A1F29D0046D00DDFED7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A1E29D0046D00DDFED7 /* ContentView.swift */; };
 		A9493A2129D0AEF700DDFED7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A2029D0AEF700DDFED7 /* HomeView.swift */; };
 		A9493A2529D0AF3C00DDFED7 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A2429D0AF3C00DDFED7 /* UserView.swift */; };
-		A9493A2729D0B11B00DDFED7 /* HomeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9493A2629D0B11B00DDFED7 /* HomeItems.swift */; };
 		A95C305729D0FED500B170C2 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C305629D0FED500B170C2 /* NotificationView.swift */; };
 		A95C305B29D10FDB00B170C2 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C305A29D10FDB00B170C2 /* DetailsView.swift */; };
-		A95C305D29D1199A00B170C2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C305C29D1199A00B170C2 /* MapView.swift */; };
-		A95C305F29D119D000B170C2 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C305E29D119D000B170C2 /* MapViewModel.swift */; };
-		A95C306129D119FA00B170C2 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C306029D119FA00B170C2 /* Places.swift */; };
-		A95C306329D11A1700B170C2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C306229D11A1700B170C2 /* Map.swift */; };
 		A95C306529D11FBA00B170C2 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C306429D11FBA00B170C2 /* ARView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E104F7E29EE20CF001AC23F /* old_wooden_chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = old_wooden_chair.usdz; sourceTree = "<group>"; };
+		8E104F7F29EE20CF001AC23F /* recliner_sofa.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = recliner_sofa.usdz; sourceTree = "<group>"; };
+		8E104F8029EE20CF001AC23F /* antique_desk.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = antique_desk.usdz; sourceTree = "<group>"; };
+		8E104F8129EE20CF001AC23F /* lamp.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = lamp.usdz; sourceTree = "<group>"; };
+		8E104F8229EE20CF001AC23F /* recliner.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = recliner.usdz; sourceTree = "<group>"; };
+		8E104F8329EE20CF001AC23F /* sofa_3230.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sofa_3230.usdz; sourceTree = "<group>"; };
+		8E104F8429EE20CF001AC23F /* wooden_table.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = wooden_table.usdz; sourceTree = "<group>"; };
 		8E11228129E7049A0097E8DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E11229129E70E710097E8DB /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		8E11229829E71BA60097E8DB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -68,20 +75,13 @@
 		A9493A0429CFD97800DDFED7 /* FakeaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeaApp.swift; sourceTree = "<group>"; };
 		A9493A0829CFD97800DDFED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9493A0B29CFD97800DDFED7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A9493A1329CFDA0100DDFED7 /* FavoritesItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItems.swift; sourceTree = "<group>"; };
 		A9493A1629CFDB1300DDFED7 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		A9493A1A29CFEBF500DDFED7 /* CartItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItems.swift; sourceTree = "<group>"; };
 		A9493A1C29CFEC3900DDFED7 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		A9493A1E29D0046D00DDFED7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A9493A2029D0AEF700DDFED7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A9493A2429D0AF3C00DDFED7 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		A9493A2629D0B11B00DDFED7 /* HomeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItems.swift; sourceTree = "<group>"; };
 		A95C305629D0FED500B170C2 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		A95C305A29D10FDB00B170C2 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		A95C305C29D1199A00B170C2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		A95C305E29D119D000B170C2 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		A95C306029D119FA00B170C2 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
-		A95C306229D11A1700B170C2 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		A95C306429D11FBA00B170C2 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +102,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E104F7D29EE20CF001AC23F /* 3D assets */ = {
+			isa = PBXGroup;
+			children = (
+				8E104F7E29EE20CF001AC23F /* old_wooden_chair.usdz */,
+				8E104F7F29EE20CF001AC23F /* recliner_sofa.usdz */,
+				8E104F8029EE20CF001AC23F /* antique_desk.usdz */,
+				8E104F8129EE20CF001AC23F /* lamp.usdz */,
+				8E104F8229EE20CF001AC23F /* recliner.usdz */,
+				8E104F8329EE20CF001AC23F /* sofa_3230.usdz */,
+				8E104F8429EE20CF001AC23F /* wooden_table.usdz */,
+			);
+			path = "3D assets";
+			sourceTree = "<group>";
+		};
 		8E11229029E70E3D0097E8DB /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +143,7 @@
 		A9493A0329CFD97800DDFED7 /* Fakea */ = {
 			isa = PBXGroup;
 			children = (
+				8E104F7D29EE20CF001AC23F /* 3D assets */,
 				A9493A0429CFD97800DDFED7 /* FakeaApp.swift */,
 				8E11229029E70E3D0097E8DB /* Firestore */,
 				A9493A1229CFD9E100DDFED7 /* DataModel */,
@@ -151,11 +166,6 @@
 		A9493A1229CFD9E100DDFED7 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				A9493A1329CFDA0100DDFED7 /* FavoritesItems.swift */,
-				A95C305E29D119D000B170C2 /* MapViewModel.swift */,
-				A95C306029D119FA00B170C2 /* Places.swift */,
-				A9493A2629D0B11B00DDFED7 /* HomeItems.swift */,
-				A9493A1A29CFEBF500DDFED7 /* CartItems.swift */,
 				8E11229829E71BA60097E8DB /* UserModel.swift */,
 				8E11229A29E71F760097E8DB /* FurnitureModel.swift */,
 				8E11229C29E725A90097E8DB /* StoreModel.swift */,
@@ -170,11 +180,9 @@
 				8ECBF16E29ECDF5C006E38BE /* AddressData.swift */,
 				8ECBF16F29ECDF5C006E38BE /* AddressView.swift */,
 				A9493A1629CFDB1300DDFED7 /* FavoritesView.swift */,
-				A95C305C29D1199A00B170C2 /* MapView.swift */,
 				A95C305A29D10FDB00B170C2 /* DetailsView.swift */,
 				A9493A2429D0AF3C00DDFED7 /* UserView.swift */,
 				8ECBF16029E90599006E38BE /* UserLoginView.swift */,
-				A95C306229D11A1700B170C2 /* Map.swift */,
 				A95C306429D11FBA00B170C2 /* ARView.swift */,
 				A9493A2029D0AEF700DDFED7 /* HomeView.swift */,
 				A9493A1C29CFEC3900DDFED7 /* CartView.swift */,
@@ -260,8 +268,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9493A0C29CFD97800DDFED7 /* Preview Assets.xcassets in Resources */,
+				8E104F8829EE20CF001AC23F /* lamp.usdz in Resources */,
+				8E104F8529EE20CF001AC23F /* old_wooden_chair.usdz in Resources */,
 				A9493A0929CFD97800DDFED7 /* Assets.xcassets in Resources */,
+				8E104F8629EE20CF001AC23F /* recliner_sofa.usdz in Resources */,
+				8E104F8929EE20CF001AC23F /* recliner.usdz in Resources */,
+				8E104F8729EE20CF001AC23F /* antique_desk.usdz in Resources */,
 				8E11228229E7049A0097E8DB /* GoogleService-Info.plist in Resources */,
+				8E104F8B29EE20CF001AC23F /* wooden_table.usdz in Resources */,
+				8E104F8A29EE20CF001AC23F /* sofa_3230.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,17 +292,12 @@
 				8E11229929E71BA60097E8DB /* UserModel.swift in Sources */,
 				A9493A2129D0AEF700DDFED7 /* HomeView.swift in Sources */,
 				8ECBF16329EB522D006E38BE /* StoreMap.swift in Sources */,
-				A95C306329D11A1700B170C2 /* Map.swift in Sources */,
-				A9493A1B29CFEBF500DDFED7 /* CartItems.swift in Sources */,
 				A95C305729D0FED500B170C2 /* NotificationView.swift in Sources */,
 				8ECBF16529ECDD16006E38BE /* UserAccountView.swift in Sources */,
 				A95C306529D11FBA00B170C2 /* ARView.swift in Sources */,
-				A95C305D29D1199A00B170C2 /* MapView.swift in Sources */,
 				8ECBF16929ECDE9C006E38BE /* CreditCardStruct.swift in Sources */,
 				8ECBF16129E90599006E38BE /* UserLoginView.swift in Sources */,
 				8E11229229E70E710097E8DB /* FirestoreManager.swift in Sources */,
-				A95C306129D119FA00B170C2 /* Places.swift in Sources */,
-				A9493A2729D0B11B00DDFED7 /* HomeItems.swift in Sources */,
 				8ECBF17029ECDF5C006E38BE /* AddressData.swift in Sources */,
 				8ECBF16D29ECDEDE006E38BE /* CreditCard.swift in Sources */,
 				8E11229D29E725A90097E8DB /* StoreModel.swift in Sources */,
@@ -296,8 +306,6 @@
 				A9493A1F29D0046D00DDFED7 /* ContentView.swift in Sources */,
 				8ECBF16729ECDDB5006E38BE /* ChangePasswordView.swift in Sources */,
 				A9493A1729CFDB1300DDFED7 /* FavoritesView.swift in Sources */,
-				A9493A1429CFDA0100DDFED7 /* FavoritesItems.swift in Sources */,
-				A95C305F29D119D000B170C2 /* MapViewModel.swift in Sources */,
 				A9493A2529D0AF3C00DDFED7 /* UserView.swift in Sources */,
 				8E11229F29E7263B0097E8DB /* OrderModel.swift in Sources */,
 				A9493A0529CFD97800DDFED7 /* FakeaApp.swift in Sources */,
@@ -430,8 +438,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fakea/Preview Content\"";
+				DEVELOPMENT_TEAM = V4ZBAPNCNA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App would like to use your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,6 +460,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				asd = asd;
 			};
 			name = Debug;
 		};
@@ -461,8 +472,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fakea/Preview Content\"";
+				DEVELOPMENT_TEAM = V4ZBAPNCNA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App would like to use your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -481,6 +494,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				asd = asd;
 			};
 			name = Release;
 		};

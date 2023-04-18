@@ -20,26 +20,27 @@
 import SwiftUI
 import MapKit
 
-/*struct City: Identifiable {
+struct StoreMap: View {
+    
+    var stores = [StoreModel] ()
+    
+    @State var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 43.7,
+                                       longitude: -79.37),
+        span: MKCoordinateSpan(latitudeDelta: 0.6,
+                               longitudeDelta: 0.6))
+
+    var body: some View {
+        Map(coordinateRegion: $region, annotationItems: stores) {
+            MapMarker(coordinate: $0.getCoordinate())
+        }
+    }
+}
+
+struct City: Identifiable {
     let id = UUID()
     let name: String
     let coordinate: CLLocationCoordinate2D
-}*/
-
-
-struct StoreMap: View {
-    
-    //let place: IdentifiablePlace
-    //@State var region: MKCoordinateRegion
-    
-    @StateObject var mapData = MapViewModel()
-    @State var locationManager = CLLocationManager()
-
-    var body: some View {
-        Map(mapData: mapData, locationManager: locationManager)
-            
-        
-    }
 }
 
 struct StoreMap_Previews: PreviewProvider {

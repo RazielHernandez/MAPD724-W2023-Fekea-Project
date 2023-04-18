@@ -52,6 +52,7 @@ struct UserLoginView: View {
                 loggingAction(username, password)
             }
             .buttonStyle(.borderedProminent)
+            
             NavigationLink(destination: UserSignUpView()) {
                 Text("Create a new account")
             }

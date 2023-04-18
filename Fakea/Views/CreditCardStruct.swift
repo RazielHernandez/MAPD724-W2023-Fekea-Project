@@ -22,9 +22,14 @@ import SwiftUI
 struct CreditCardStruct: View {
     @State private var degress: Double = 0
     @State private var isFlipped: Bool  = false
-    @State private var name: String  = ""
-    @State private var date: String  = ""
-    @State private var cvv: String  = ""
+    
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var dataBase: FirestoreManager
+    @State var card: CreditCardModel = CreditCardModel()
+    
+    //@State private var name: String  = ""
+    //@State private var date: String  = ""
+    //@State private var cvv: String  = ""
     
     var body: some View {
         VStack {
@@ -37,9 +42,9 @@ struct CreditCardStruct: View {
                 VStack {
                     Group {
                         if self.isFlipped {
-                            CreditCardBack(cvv: self.cvv)
+                            CreditCardBack(cvv: card.cvv)
                         } else {
-                            CreditCardFront(name: self.name, expiration: self.date)
+                            CreditCardFront(name: card.name, expiration: card.expireDate)
                         }
                     }
                 }.rotation3DEffect(.degrees(self.degress), axis: (x: 0, y: 1.0, z: 0))
@@ -49,13 +54,16 @@ struct CreditCardStruct: View {
                     self.isFlipped.toggle()
                 }
             }
-            TextField("Name", text: $name)
+            TextField("Name", text: $card.name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding([.top, .leading, .trailing])
-            TextField("Expiry Date", text: $date)
+            TextField("Number", text: $card.number)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding([.top, .leading, .trailing])
-            TextField("CVV", text: $cvv, onEditingChanged: {(editingChanged) in
+            TextField("Expiry Date", text: $card.expireDate)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding([.top, .leading, .trailing])
+            TextField("CVV", text: $card.cvv, onEditingChanged: {(editingChanged) in
                 withAnimation {
                     self.degress += 180
                     self.isFlipped.toggle()
@@ -65,11 +73,32 @@ struct CreditCardStruct: View {
                 .padding([.top, .leading, .trailing])
             
         }
+        .navigationBarTitle(Text("Address"))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(
+            trailing: Button("Save") {
+                saveCard()
+            }
+        )
+        .onAppear() {
+            if (dataBase.user.creditCards.count > 0) {
+                self.card = dataBase.user.creditCards[0]
+            } else {
+                dataBase.user.creditCards.append(self.card)
+            }
+        }
+    }
+    
+    func saveCard() {
+        dataBase.user.creditCards[0] = card
+        dataBase.updateUser(userToUpdate: dataBase.user)
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct CreditCardStruct_Previews: PreviewProvider {
     static var previews: some View {
-        CreditCardStruct()
+        @ObservedObject var dataBase = FirestoreManager()
+        CreditCardStruct(dataBase: dataBase)
     }
 }

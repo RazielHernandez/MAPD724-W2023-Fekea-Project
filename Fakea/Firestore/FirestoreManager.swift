@@ -154,7 +154,37 @@ class FirestoreManager: ObservableObject {
         }
     }
     
-    func getStoresByIds( ids: [String]) {
+    func getStores() {
+        db.collection("stores_collection").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                do {
+                    for document in querySnapshot!.documents {
+                        self.stores.append( try document.data(as: StoreModel.self) )
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
+                catch {
+                    print("Error on decoding store object")
+                    print(error)
+                }
+                
+            }
+        }
+    }
+    
+    func getStoresByIds( ids: [String]) -> [StoreModel] {
+        var result = [StoreModel] ()
+        for store in self.stores {
+            if (ids.contains(store.id ?? "")){
+                result.append( store )
+            }
+        }
+        return result
+    }
+    
+    /*func getStoresByIds( ids: [String]) {
         db.collection("stores_collection").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -174,7 +204,7 @@ class FirestoreManager: ObservableObject {
                 
             }
         }
-    }
+    }*/
     
     func insertNewOder( order: OrderModel) {
         do {

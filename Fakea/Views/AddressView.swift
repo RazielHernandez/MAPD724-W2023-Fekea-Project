@@ -20,77 +20,50 @@
 import SwiftUI
 
 struct AddressView: View {
-    private var listOfCountry = countryList
-    @State var searchText = ""
-    @State var address = ""
-    @State var streetAddress = ""
-    @State var city = ""
-    @State var zip = ""
     
-    var hasValidAddress: Bool {
-        if streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
-            return false
-        }
-
-        return true
-    }
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var dataBase: FirestoreManager
+    @State var address: AddressModel = AddressModel()
     
     var body: some View {
-        NavigationView {
-           
-            Form {
-               
-                Section {
-                    TextField("Address 1", text:$address)
-                    TextField("Street address", text: $streetAddress)
-                    TextField("City", text:$city)
-                    TextField("Zip", text:$zip)
-                    TextField("Countries", text: $searchText)
-                    
-                }
-                Section {
-                    TextField("Address 2", text:$address)
-                    TextField("Street address", text: $streetAddress)
-                    TextField("City", text:$city)
-                    TextField("Zip", text:$zip)
-                    
-                }
-                
-                Section{
-                    Button(action: {}) {
-                        
-                        Text("Save")
+        
+        Form {
+            Section (header: Text("Delivery address")) {
+                TextField("Name", text:$address.name)
+                TextField("Address", text:$address.address)
+                TextField("Zip", text:$address.postalCode)
+                TextField("Telephone", text:$address.telephone)
+            }
+            
+            Section{
+                Button(action: {saveAddress()}) {
+                    Text("Save")
                         .font(.system(size: 20))
                         .multilineTextAlignment(.center)
-                    }
-                
                 }
-                .navigationTitle("Delivery Address")
-                .navigationBarTitleDisplayMode(.inline)
-                
-           
-            /*List {
-                ForEach(countries, id: \.self) { country in
-                    HStack {
-                        Text(country.capitalized)
-                        Spacer()
-                    }
-                    .padding()
-                }
-            }*/
-
-
+            }
         }
-            
+        .navigationBarTitle(Text("Address"))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(
+            trailing: Button("Save") {
+                saveAddress()
+            }
+        )
+        .onAppear() {
+            if (dataBase.user.addresses.count > 0) {
+                self.address = dataBase.user.addresses[0]
+            } else {
+                dataBase.user.addresses.append(self.address)
+            }
         }
+        
     }
     
-    // Filter countries
-    var countries: [String] {
-        // Make countries lowercased
-        let lcCountries = listOfCountry.map { $0.lowercased() }
-        
-        return searchText == "" ? lcCountries : lcCountries.filter { $0.contains(searchText.lowercased()) }
+    func saveAddress() {
+        dataBase.user.addresses[0] = address
+        dataBase.updateUser(userToUpdate: dataBase.user)
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
@@ -98,6 +71,7 @@ struct AddressView: View {
 
 struct AddressView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressView()
+        @ObservedObject var dataBase = FirestoreManager()
+        AddressView(dataBase: dataBase, address: AddressModel())
     }
 }

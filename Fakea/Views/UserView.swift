@@ -23,7 +23,6 @@ import SwiftUI
 
 struct UserView: View {
     @State private var showNotification = false
-    //@EnvironmentObject var dataBase: FirestoreManager
     @ObservedObject var dataBase: FirestoreManager
     
     func loggingFunction(email: String, password: String) {
@@ -43,7 +42,7 @@ struct UserView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 if (dataBase.user.enable) {
-                    LoggedView(logoutFunction: logoutFunction)
+                    LoggedView(logoutFunction: logoutFunction, dataBase: dataBase)
                 } else {
                     UserLoginView(loggingAction: loggingFunction(email:password:))
                 }
@@ -71,6 +70,7 @@ struct FormHiddenBackground: ViewModifier {
 
 struct LoggedView: View {
     var logoutFunction: () -> Void
+    @ObservedObject var dataBase: FirestoreManager
     
     func testFunction() {
         print("Test function")
@@ -90,16 +90,16 @@ struct LoggedView: View {
                 
                 
                 Section(header: Text("User account")) {
-                    NavigationLink(destination: UserAccountView()) {
+                    NavigationLink(destination: UserAccountView(dataBase: dataBase)) {
                         SettingRowView(title: "User info", systemImageName: "person.fill", action: testFunction)
                     }
-                    NavigationLink(destination: ChangePasswordView()) {
+                    NavigationLink(destination: ChangePasswordView(dataBase: dataBase)) {
                         SettingRowView(title: "Change password", systemImageName: "key.fill", action: testFunction)
                     }
-                    NavigationLink(destination: AddressView()) {
+                    NavigationLink(destination: AddressView(dataBase: dataBase)) {
                         SettingRowView(title: "Address", systemImageName: "location.fill", action: testFunction)
                     }
-                    NavigationLink(destination: CreditCardStruct()) {
+                    NavigationLink(destination: CreditCardStruct(dataBase: dataBase)) {
                         SettingRowView(title: "Methods of payment", systemImageName: "creditcard.fill", action: testFunction)
                     }
                 }
@@ -114,9 +114,6 @@ struct LoggedView: View {
                 Section(header: Text("Others")) {
                     SettingRowView(title: "About us", systemImageName: "person.fill.questionmark", action: testFunction)
                     SettingRowView(title: "Help", systemImageName: "questionmark.bubble.fill", action: testFunction)
-                    /*NavigationLink(destination: NotificationView()) {
-                        SettingRowView(title: "Sign out", systemImageName: "door.right.hand.open", action: testFunction)
-                    }*/
                     Button("Logout"){
                         logoutFunction()
                     }

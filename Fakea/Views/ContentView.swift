@@ -27,6 +27,7 @@ struct ContentView: View {
     
     init () {
         self.dataBase.getAllFurniture()
+        self.dataBase.getStores()
     }
     
     var body: some View {

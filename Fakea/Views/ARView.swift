@@ -21,28 +21,28 @@
 
 import SwiftUI
 import ARKit
+import SceneKit.ModelIO
 
 struct ARView: View {
     
-    
-    
     var body: some View {
-        
         ARViewCamera()
-        
-        //Text("Hello world")
-        
     }
     
 }
 
 struct ARViewCamera: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
-        let sceneView  = ARSCNView()
-        sceneView.showsStatistics = true
+        var sceneView  = ARSCNView()
+        sceneView.showsStatistics = false
         
         let configuration = ARWorldTrackingConfiguration()
         sceneView.session.run(configuration)
+        
+        guard let url = Bundle.main.url(forResource: "recliner", withExtension: "usdz") else { fatalError() }
+        let mdlAsset = MDLAsset(url: url)
+        let scene = SCNScene(mdlAsset: mdlAsset)
+        sceneView.scene = scene
         
         return sceneView
     }
